@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Dogs Search Engine</string>
+    <string name="results_not_loaded">Results could not be loaded</string>
+    <string name="try_again">Try Again</string>
+    <string name="no_results_found_for_this_query">No results found for this query</string>
+    <string name="dog_image">Dog image</string>
+    <string name="failed_to_load">Failed to load</string>
+    <string name="retry">Retry</string>
+    <string name="search">Search</string>
+</resources>
