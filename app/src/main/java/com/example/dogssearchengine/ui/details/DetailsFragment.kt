@@ -29,7 +29,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             val photo = args.photo
 
             Glide.with(this@DetailsFragment)
-                .load(photo.urls.regular)
+                .load(photo.urls.full)
                 .error(R.drawable.ic_error)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(

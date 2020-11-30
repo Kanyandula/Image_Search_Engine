@@ -1,6 +1,6 @@
 package com.example.dogssearchengine.ui.gallery
 
-import android.provider.ContactsContract
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -12,10 +12,12 @@ import com.example.dogssearchengine.R
 import com.example.dogssearchengine.data.DogImages
 import com.example.dogssearchengine.databinding.ItemPhotoListBinding
 
-class GalleryAdapter(private val listener : OnItemClickListener) :
-    PagingDataAdapter<DogImages,GalleryAdapter.DogViewHolder>(IMAGE_COMPARATOR) {
+
+class GalleryAdapter(private val listener: OnItemClickListener) :
+    PagingDataAdapter<DogImages, GalleryAdapter.DogViewHolder>(IMAGE_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogViewHolder {
+        //ItemUnsplashPhotoBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         val binding =
             ItemPhotoListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return DogViewHolder(binding)
@@ -29,20 +31,21 @@ class GalleryAdapter(private val listener : OnItemClickListener) :
         }
 
     }
-//to access properties of the surrounding class we make it an inner class
-   inner class DogViewHolder(private val binding: ItemPhotoListBinding) :
+
+    //to access properties of the surrounding class we make it an inner class
+    inner class DogViewHolder(private val binding: ItemPhotoListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-    init {
-        binding.root.setOnClickListener {
-            val position = bindingAdapterPosition
-            if (position != RecyclerView.NO_POSITION) {
-                val item = getItem(position)
-                if (item != null) {
-                    listener.onItemClick(item)
+        init {
+            binding.root.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = getItem(position)
+                    if (item != null) {
+                        listener.onItemClick(item)
+                    }
                 }
             }
         }
-    }
 
 
         //access our views in a null and type safe way
@@ -55,24 +58,25 @@ class GalleryAdapter(private val listener : OnItemClickListener) :
                     .error(R.drawable.ic_error)
                     .into(imageView)
                 textViewUserName.text = photo.user.username
+                textViewLikes.text = photo.likes.toString()
             }
 
         }
     }
 
     interface OnItemClickListener {
-        fun  onItemClick(photo: DogImages)
+        fun onItemClick(photo: DogImages)
     }
 
-        companion object {
-            private val IMAGE_COMPARATOR = object : DiffUtil.ItemCallback<DogImages>() {
-                override fun areItemsTheSame(oldItem: DogImages, newItem: DogImages) =
-                    oldItem.id == newItem.id
+    companion object {
+        private val IMAGE_COMPARATOR = object : DiffUtil.ItemCallback<DogImages>() {
+            override fun areItemsTheSame(oldItem: DogImages, newItem: DogImages) =
+                oldItem.id == newItem.id
 
-                override fun areContentsTheSame(oldItem: DogImages, newItem: DogImages) =
-                    oldItem == newItem
-            }
+            override fun areContentsTheSame(oldItem: DogImages, newItem: DogImages) =
+                oldItem == newItem
         }
-
-
     }
+
+
+}

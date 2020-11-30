@@ -74,8 +74,6 @@ class GalleryFragment :
     }
 
     override fun onItemClick(photo: DogImages) {
-//        val action = GalleryFragmentDirections.actionGalleryFragmentToDetailsFragment(photo)
-//        findNavController().navigate(action)
 
         val action = GalleryFragmentDirections.actionGalleryFragmentToDetailsFragment2(photo)
         findNavController().navigate(action)

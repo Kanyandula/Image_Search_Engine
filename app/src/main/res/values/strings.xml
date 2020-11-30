@@ -7,4 +7,5 @@
     <string name="failed_to_load">Failed to load</string>
     <string name="retry">Retry</string>
     <string name="search">Search</string>
+    <string name="searched_image">Searched Image</string>
 </resources>
