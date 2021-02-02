@@ -28,6 +28,8 @@ ___
 ___
 
  **MVVM** is the Architecture used in the project.
+___
+ **Intrumentation Test** with **JUnit** and **UI** Test with **Espresso**
 
 
 
